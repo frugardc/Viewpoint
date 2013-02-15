@@ -31,7 +31,8 @@ module Viewpoint
         SOAP_ACTION_PREFIX = "http://schemas.microsoft.com/exchange/services/2006/messages"
 
         @@raw_soap = false
-        @@http_options = nil
+        ## Need to set timeout to forever since I am dealing with a very slow service with thousands of messages per day
+        @@http_options = {:receive_timeout => 0}
 
         def initialize()
           if $DEBUG
