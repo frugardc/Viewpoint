@@ -34,7 +34,7 @@ module Viewpoint
       def self.send(subject, body, to_recipients, cc_recipients=[], bcc_recipients=[], file_attachments=nil, draft=false)
         item = {}
         item[:subject] = {:text => subject}
-        item[:body] = {:text => body, :body_type => 'Text'} unless body.nil?
+        item[:body] = {:text => body, :body_type => 'HTML'} unless body.nil?
         to_recipients.each do |a|
           item[:to_recipients] = [] unless item[:to_recipients].is_a?(Array)
           item[:to_recipients] << {:mailbox => {:email_address => {:text => a}}}
